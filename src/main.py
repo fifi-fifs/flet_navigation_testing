@@ -28,6 +28,16 @@ def main(page: Page):
                     ],
                 )
             )
+        if page.route == "/erre":
+            page.views.append(
+                View(
+                    "/erre",
+                    [
+                        AppBar(title=Text("This is Erre", size=24,  color='blue', weight='bold'), bgcolor=colors.RED,),
+                        ElevatedButton("Go Home", on_click=lambda _: page.go("/")),
+                    ],
+                )
+            )
         page.update()
 
     def view_pop(e):
@@ -42,4 +52,5 @@ def main(page: Page):
 
 
 if __name__ == "__main__":
-    flet.app(target= main)
+    flet.app(target= main, view=flet.AppView.WEB_BROWSER)
+    # flet.app(target= main)
